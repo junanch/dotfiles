@@ -1,0 +1,28 @@
+# https://www.jianshu.com/p/8c352787d75d
+
+# 编辑模式 emacs 或 vi
+$if mode=vi
+set editing-mode vi
+set keymap vi
+$endif
+
+# 响铃声音
+set bell-style none
+
+# 自动补全 list 结果
+set show-all-if-ambiguous on
+
+# 自动补全不区分大小写
+set completion-ignore-case on
+
+# 自动补全的结果，可以 tab 选择
+TAB: menu-complete
+
+# 清屏
+"\C-l": clear-screen
+
+# 历史命令
+"\C-p": previous-history
+
+# 历史命命
+"\C-n": next-history

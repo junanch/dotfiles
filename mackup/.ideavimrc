@@ -1,0 +1,14 @@
+set history=100000
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+# vim模式下，自动切换英文输入法，配合插件 ideaVimExtension
+set keep-english-in-normal-and-restore-in-insert
+
+#系统剪切板
+set clipboard+=unnamed
+
+# 在vim的nomal模式下，按键r，即可格式化代码
+:map \r :action ReformatCode<CR>

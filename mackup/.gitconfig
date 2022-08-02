@@ -1,0 +1,22 @@
+[user]
+  email = andyson1024@gmail.com
+  name = Junan
+[core]
+  editor = vim
+  ignorecase = false
+  autocrlf = input
+[alias]
+  la = log --oneline --decorate --all --graph
+  lo = log --oneline --decorate --graph
+  co = checkout
+  st = status
+  lc = shortlog
+  ln = rev-list --all --count
+  ls = log --graph --all --pretty=format:'%C(auto)%h%C(auto)%d %s %C(bold blue)%an%Creset %C(green)%cd%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[includeIf "gitdir:~/Work/**"]
+  path = ~/Work/.gitconfig
