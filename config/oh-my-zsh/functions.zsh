@@ -80,5 +80,10 @@ function cur-wifi-pasd() {
 function backupp() {
   brew bundle dump --describe --force --file="~/Dropbox/dotfiles/config/Brewfile" && osascript -e 'display notification "backup to ~/Dropbox/dotfiles/config/Brewfile" with title "Brewfile"'
   ls /Applications | sort > ~/Dropbox/dotfiles/config/Applications && osascript -e 'display notification "backup ~/Dropbox/dotfiles/config/Applications" with title "Applications"'
-  mackup -f backup && osascript -e 'display notification "mackup backup" with title "Mackup" '
+  mackup -f backup && osascript -e 'display notification "mackup backup" with title "Mackup"'
+}
+
+function t62() {
+  tmux split-window -h -p 60
+  tmux split-window -v -p 20
 }

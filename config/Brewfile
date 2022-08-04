@@ -20,6 +20,8 @@ brew "mas"
 brew "mysql"
 # Node version management
 brew "n"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # HTTP/2 C Library
 brew "nghttp2"
 # 📦🚀 Fast, disk space efficient package manager
@@ -32,6 +34,8 @@ brew "reattach-to-user-namespace"
 brew "rename"
 # Powerful, clean, object-oriented scripting language
 brew "ruby"
+# Zsh prompt for Astronauts
+brew "spaceship"
 # Secure Reliable Transport
 brew "srt"
 # Terminal multiplexer
@@ -70,6 +74,8 @@ cask "downie"
 cask "dropbox"
 # Calendar software
 cask "fantastical"
+# Reimagine your terminal
+cask "fig"
 # Web browser
 cask "firefox"
 cask "font-fira-code"

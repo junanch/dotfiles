@@ -1,6 +1,9 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 ################################################################################
 # oh-my-zsh
@@ -39,10 +42,15 @@ iterm2_print_user_vars() {
 
 
 ################################################################################
-# zsh prompt - pure
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
-prompt pure
+
+# zsh prompt - pure
+# prompt pure
+
+# zsh prompt - spaceship
+prompt spaceship
+SPACESHIP_VI_MODE_SHOW=fals
 ################################################################################
 
 
@@ -81,3 +89,6 @@ set backspace=2
 # 1Password setting SSH_AUTH_SOCK
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 ################################################################################
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
