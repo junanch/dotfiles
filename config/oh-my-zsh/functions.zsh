@@ -83,7 +83,7 @@ function backupp() {
   mackup -f backup && osascript -e 'display notification "mackup backup" with title "Mackup"'
 }
 
-function t62() {
+function tsw() {
   tmux split-window -h -p 60
   tmux split-window -v -p 20
 }

@@ -105,6 +105,16 @@ install_iprintf_vim() {
   symlink_files "$FROM_FILES" "$TARGET_DIR"
 }
 
+install_neovim() {
+  log_section_start "Installing neovim"
+  git clone https://github.com/junegunn/vim-plug ~/.junegunn-vim-plug
+
+  FROM_FILES=~/.junegunn-vim-plug/plug.vim
+  TARGET_DIR=~/.local/share/nvim/site/autoload
+  log_section_start "Sym linking files from $FROM_FILES to $TARGET_DIR"
+  mkdir -p $TARGET_DIR && ln -s $FROM_FILES $TARGET_DIR/plug.vim
+}
+
 install_mac() {
   log_section_start "Installing mac config"
   bash "$SCRIPT_DIR/mac.sh" "$ROOT_DIR"
