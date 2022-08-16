@@ -42,9 +42,9 @@ iterm2_print_user_vars() {
 
 
 ################################################################################
+# set brew zsh evn, load zsh prompt
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
-
 # zsh prompt - pure
 # prompt pure
 
@@ -88,6 +88,12 @@ set backspace=2
 ################################################################################
 # 1Password setting SSH_AUTH_SOCK
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+################################################################################
+
+
+################################################################################
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ################################################################################
 
 # Fig post block. Keep at the bottom of this file.

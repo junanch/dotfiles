@@ -39,3 +39,7 @@ alias freewifi="sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:
 
 # brew
 alias brewup='brew install mas && brew bundle dump --describe --force --file="~/Dropbox/dotfiles/config/Brewfile"'
+
+# tmux
+alias tswh='tmux split-window -h -p'
+alias tswv='tmux split-window -v -p'
