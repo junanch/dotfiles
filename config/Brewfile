@@ -86,6 +86,8 @@ cask "forklift"
 cask "go2shell"
 # Web browser
 cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
 # Utility to hide menu bar items
 cask "hiddenbar"
 # Free and open-source media player
@@ -150,8 +152,6 @@ cask "telegram"
 cask "typora"
 # Open-source code editor
 cask "visual-studio-code"
-# Rust-based terminal
-cask "warp"
 # Free messaging and calling application
 cask "wechat"
 # Browse & Control phone on PC, Screen Fusion for iOS & Android
