@@ -129,7 +129,8 @@ install_mackup() {
   log_section_start "Installing mackup config"
 
   if command -v mackup >/dev/null 2>&1; then
-    mackup backup
+    cp "$ROOT_DIR/mackup/.mackup.cfg" ~/
+    mackup restore
   else
     echo "no exists mackup"
   fi

@@ -8,9 +8,9 @@ module.exports = {
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
         // default font size in pixels for all tabs
-        fontSize: 16,
+        fontSize: 18,
         // font family with optional fallbacks
-        fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontFamily: 'MesloLGS NF, Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
         // default font weight: 'normal' or 'bold'
         fontWeight: 'normal',
         // font weight for bold characters: 'normal' or 'bold'
@@ -31,7 +31,7 @@ module.exports = {
         foregroundColor: '#fff',
         // terminal background color
         // opacity is only supported on macOS
-        backgroundColor: '#000',
+        backgroundColor: 'rgb(40,42,54,0.5)',
         // terminal selection color
         selectionColor: 'rgba(248,28,229,0.3)',
         // border color (window, tabs)
@@ -130,7 +130,6 @@ module.exports = {
         // set to true to preserve working directory when creating splits or tabs
         preserveCWD: true,
         // for advanced config flags please refer to https://hyper.is/#cfg
-        opacity: 0.8,
     },
     // a list of plugins to fetch and install from npm
     // format: [@org/]project[#version]
@@ -138,7 +137,7 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: ["hyper-opacity", "hyper-snazzy", "hyperminimal"],
+    plugins: ["hyper-snazzy"],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
