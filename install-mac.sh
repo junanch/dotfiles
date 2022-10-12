@@ -12,21 +12,26 @@ source "$ROOT_DIR/command/tools.sh"
 install_ssh_config() {
   log_section_start "Installing ssh config"
 
-  if [ -f ~/.ssh/id_rsa ]; then
-    # 启动 ssh agent
-    eval "$(ssh-agent -s)"
-    # 将 SSH 私钥添加到 ssh-agent 并将密码短语 (passphrase) 存储在密钥链中，之后不需要输入密码了
-    # -K macOS 的密钥链
-    ssh-add -K ~/.ssh/id_rsa
-  else
-    echo "~/.ssh/id_rsa file no exists"
-  fi
-
   TARGET_DIR=~/.ssh/
+  FROM_FILES="$ROOT_DIR/mackup/.ssh/*"
 
   if [ ! -d $TARGET_DIR ]; then
     mkdir $TARGET_DIR &> /dev/null
   fi
+
+  log_section_start "Sym linking files from $FROM_FILES to $TARGET_DIR"
+  symlink_files "$FROM_FILES" "$TARGET_DIR"
+}
+
+install_git_config() {
+  FROM_FILE="$ROOT_DIR/mackup/.gitconfig"
+  TARGET_FILE=~/.gitconfig
+
+  log_section_start "Sym linking file from $FROM_FILE to $TARGET_FILE"
+  symlink "$FROM_FILE" "$TARGET_FILE"
+
+  xcode-select --install
+  sudo xcode-select --switch /Library/Developer/CommandLineTools
 }
 
 # iTerm2 shell
@@ -50,7 +55,9 @@ install_oh_my_zsh() {
   KEEP_ZSHRC=yes
 
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
 
+install_oh_my_zsh_plugin() {
   echo "Installing zsh-completions"
   git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
@@ -137,14 +144,16 @@ install_mackup() {
 }
 
 install_all() {
-  # install_ssh_config
-  install_iterm2
-  install_oh_my_zsh
-  # install_oh_my_wechat
-  install_iprintf_vim
-  install_mac
+  install_ssh_config
+  install_git_config
   install_brew
   install_mackup
+  install_mac
+  install_iterm2
+  install_oh_my_zsh
+  install_oh_my_zsh_plugin
+  # install_oh_my_wechat
+  install_iprintf_vim
 }
 
 if [ "$(type -t "install_$1")" == function ]; then
