@@ -4,16 +4,16 @@
 ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 CONFIG_DIR="$ROOT_DIR/config"
 SCRIPT_DIR="$ROOT_DIR/script"
+MACKUP_DIR="$ROOT_DIR/mackup"
 
 # import tools function
 source "$ROOT_DIR/command/tools.sh"
 
-# ssh config
 install_ssh_config() {
   log_section_start "Installing ssh config"
 
+  FROM_FILES="$MACKUP_DIR/.ssh/*"
   TARGET_DIR=~/.ssh/
-  FROM_FILES="$ROOT_DIR/mackup/.ssh/*"
 
   if [ ! -d $TARGET_DIR ]; then
     mkdir $TARGET_DIR &> /dev/null
@@ -24,24 +24,58 @@ install_ssh_config() {
 }
 
 install_git_config() {
-  FROM_FILE="$ROOT_DIR/mackup/.gitconfig"
+  log_section_start "Installing git config"
+
+  FROM_FILE="$MACKUP_DIR/.gitconfig"
   TARGET_FILE=~/.gitconfig
 
   log_section_start "Sym linking file from $FROM_FILE to $TARGET_FILE"
   symlink "$FROM_FILE" "$TARGET_FILE"
+}
+
+install_mac_config() {
+  log_section_start "Installing mac config"
+  bash "$SCRIPT_DIR/mac.sh" "$ROOT_DIR"
+}
+
+install_xcode_select() {
+  log_section_start "Installing xcode-select"
 
   xcode-select --install
   sudo xcode-select --switch /Library/Developer/CommandLineTools
 }
 
-# iTerm2 shell
-install_iterm2() {
-  log_section_start "Installing iTerm2"
-
-  curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+install_brew() {
+  log_section_start "Installing brew command"
+  bash "$SCRIPT_DIR/brew.sh" "$ROOT_DIR"
 }
 
-# oh-my-zsh
+install_brew_config() {
+  log_section_start "Installing brew config"
+
+  if command -v brew >/dev/null 2>&1; then
+    brew bundle --file="$CONFIG_DIR/Brewfile"
+  else
+    echo "no exists brew command"
+  fi
+}
+
+install_mackup_config() {
+  log_section_start "Installing mackup config"
+
+  if command -v mackup >/dev/null 2>&1; then
+    FROM_FILE="$MACKUP_DIR/.mackup.cfg"
+    TARGET_FILE=~/.mackup.cfg
+
+    log_section_start "Sym linking file from $FROM_FILE to $TARGET_FILE"
+    symlink "$FROM_FILE" "$TARGET_FILE"
+
+    mackup restore
+  else
+    echo "no exists mackup command"
+  fi
+}
+
 install_oh_my_zsh() {
   log_section_start "Installing oh-my-zsh"
 
@@ -57,7 +91,7 @@ install_oh_my_zsh() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-install_oh_my_zsh_plugin() {
+install_oh_my_zsh_config() {
   echo "Installing zsh-completions"
   git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
@@ -86,14 +120,12 @@ install_oh_my_zsh_plugin() {
   symlink_files "$FROM_FILES" "$TARGET_DIR"
 }
 
-# oh-my-zsh
-install_oh_my_wechat() {
-  log_section_start "Installing oh-my-wechat"
+install_iterm2_zsh() {
+  log_section_start "Installing iTerm2"
 
-  curl -o- -L https://omw.limingkai.cn/install.sh | bash -s
+  curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 }
 
-# iprintf-vim
 install_iprintf_vim() {
   log_section_start "Installing iprintf vim"
 
@@ -122,38 +154,22 @@ install_neovim() {
   mkdir -p $TARGET_DIR && ln -s $FROM_FILES $TARGET_DIR/plug.vim
 }
 
-install_mac() {
-  log_section_start "Installing mac config"
-  bash "$SCRIPT_DIR/mac.sh" "$ROOT_DIR"
-}
-
-install_brew() {
-  log_section_start "Installing brew config"
-  bash "$SCRIPT_DIR/brew.sh" "$ROOT_DIR"
-}
-
-install_mackup() {
-  log_section_start "Installing mackup config"
-
-  if command -v mackup >/dev/null 2>&1; then
-    cp "$ROOT_DIR/mackup/.mackup.cfg" ~/
-    mackup restore
-  else
-    echo "no exists mackup"
-  fi
-}
-
 install_all() {
   install_ssh_config
   install_git_config
+  install_mac_config
+  install_xcode_select
+
   install_brew
-  install_mackup
-  install_mac
-  install_iterm2
+  install_brew_config
+  install_mackup_config
+
   install_oh_my_zsh
-  install_oh_my_zsh_plugin
-  # install_oh_my_wechat
+  install_oh_my_zsh_config
+  install_iterm2_zsh
+
   install_iprintf_vim
+  install_neovim
 }
 
 if [ "$(type -t "install_$1")" == function ]; then

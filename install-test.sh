@@ -4,19 +4,19 @@
 ROOT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 CONFIG_DIR="$ROOT_DIR/config"
 SCRIPT_DIR="$ROOT_DIR/script"
+MACKUP_DIR="$ROOT_DIR/mackup"
 
 # import tools function
 source "$ROOT_DIR/command/tools.sh"
 
-# oh-my-zsh
 install_test() {
   log_section_start "Installing test"
 
-  FROM_FILES=~/.iprintf-vim/config/.vim*
-  TARGET_DIR=~
+  FROM_FILE="$MACKUP_DIR/.gitconfig"
+  TARGET_FILE=~/.gitconfig
 
-  log_section_start "Sym linking files from $FROM_FILES to $TARGET_DIR"
-  symlink_files "$FROM_FILES" "$TARGET_DIR"
+  log_section_start "Sym linking file from $FROM_FILE to $TARGET_FILE"
+  symlink "$FROM_FILE" "$TARGET_FILE"
 }
 
 

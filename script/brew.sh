@@ -12,8 +12,4 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-CONFIG_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/../config" && pwd )
-
 brew install mas
-
-brew bundle --file="$CONFIG_DIR/Brewfile"
