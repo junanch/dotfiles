@@ -42,13 +42,14 @@ iterm2_print_user_vars() {
 ################################################################################
 # set brew zsh evn, load zsh prompt
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
+
+# autoload -U promptinit; promptinit
 # zsh prompt - pure
 # prompt pure
 
 # zsh prompt - spaceship
-prompt spaceship
-SPACESHIP_VI_MODE_SHOW=fals
+# prompt spaceship
+source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 ################################################################################
 
 

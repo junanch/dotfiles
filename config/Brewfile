@@ -1,3 +1,4 @@
+tap "1password/tap"
 tap "bigwig-club/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -48,6 +49,8 @@ brew "tree"
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Command-line helper for the 1Password password manager
+cask "1password-cli"
 # Application launcher and productivity software
 cask "alfred4"
 # Enable Windows-like alt-tab
@@ -72,13 +75,12 @@ cask "docker"
 cask "downie"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
-# Calendar software
-cask "fantastical"
 # Reimagine your terminal
 cask "fig"
+# Collaborative team software
+cask "figma"
 # Web browser
 cask "firefox"
-cask "font-fira-code"
 # GIT client
 cask "fork"
 # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client
@@ -104,10 +106,8 @@ cask "keka"
 cask "kindle"
 # Open-source Epub reader with backup and restore support
 cask "koodo-reader"
-# Provides updates to various Microsoft products
-cask "microsoft-auto-update"
-# Web browser
-cask "microsoft-edge"
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol"
 # Smooths scrolling and set mouse scroll directions independently
 cask "mos"
 # Music streaming platform
@@ -124,6 +124,7 @@ cask "paw"
 cask "pdf-expert"
 # PDF compression tool
 cask "pdf-squeezer"
+cask "pennywise"
 # Converts and edits video, audio or image files
 cask "permute"
 # Collaboration platform for API development
@@ -152,6 +153,8 @@ cask "telegram"
 cask "typora"
 # Open-source code editor
 cask "visual-studio-code"
+# Rust-based terminal
+cask "warp"
 # Free messaging and calling application
 cask "wechat"
 # Browse & Control phone on PC, Screen Fusion for iOS & Android
