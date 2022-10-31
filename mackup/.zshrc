@@ -1,7 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
 ################################################################################
 # oh-my-zsh
@@ -41,15 +40,17 @@ iterm2_print_user_vars() {
 
 ################################################################################
 # set brew zsh evn, load zsh prompt
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
+# fpath+=("$(brew --prefix)/share/zsh/site-functions")
 # autoload -U promptinit; promptinit
 # zsh prompt - pure
 # prompt pure
 
 # zsh prompt - spaceship
-# prompt spaceship
-source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
+SPACESHIP_CONFIG_FILE_PATH="$(brew --prefix)/opt/spaceship/spaceship.zsh"
+SPACESHIP_PROMPT_ASYNC=false
+if [[ -s "$SPACESHIP_CONFIG_FILE_PATH" ]]; then
+  source "$SPACESHIP_CONFIG_FILE_PATH"
+fi
 ################################################################################
 
 
