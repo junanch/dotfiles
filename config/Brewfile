@@ -51,10 +51,10 @@ brew "yarn"
 brew "zsh"
 # Command-line helper for the 1Password password manager
 cask "1password-cli"
-# Application launcher and productivity software
-cask "alfred4"
 # Enable Windows-like alt-tab
 cask "alt-tab"
+# Memory training application
+cask "anki"
 # Menu bar icon organizer
 cask "bartender"
 # Translation application for text, pictures, and manual input
@@ -81,6 +81,8 @@ cask "fig"
 cask "figma"
 # Web browser
 cask "firefox"
+# Free monospaced font with programming ligatures
+cask "font-fira-code"
 # GIT client
 cask "fork"
 # Finder replacement and FTP, SFTP, WebDAV and Amazon s3 client
@@ -106,6 +108,8 @@ cask "keka"
 cask "kindle"
 # Open-source Epub reader with backup and restore support
 cask "koodo-reader"
+# Native app email client for Gmail
+cask "mimestream"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
 # Smooths scrolling and set mouse scroll directions independently
@@ -131,6 +135,8 @@ cask "permute"
 cask "postman"
 # Instant messaging tool
 cask "qq"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # MySQL/MariaDB database management platform
@@ -149,6 +155,8 @@ cask "surge"
 cask "teamviewer"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Cloud video conferencing
+cask "tencent-meeting"
 # Configurable document editor that supports Markdown
 cask "typora"
 # Open-source code editor
@@ -171,6 +179,7 @@ mas "MindNode", id: 1289197285
 mas "Numbers 表格", id: 409203825
 mas "Pages 文稿", id: 409201541
 mas "PasteNow", id: 1552536109
+mas "Save to Matter", id: 1548677272
 mas "Spark", id: 1176895641
 mas "Speedtest", id: 1153157709
 mas "Twitter", id: 1482454543
