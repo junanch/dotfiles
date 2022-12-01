@@ -78,8 +78,8 @@ function cur-wifi-pasd() {
 }
 
 function backupp() {
-  brew install mas && brew bundle dump --describe --force --file="~/Dropbox/dotfiles/config/Brewfile" && osascript -e 'display notification "backup to ~/Dropbox/dotfiles/config/Brewfile" with title "Brewfile"'
-  ls /Applications | sort > ~/Dropbox/dotfiles/config/Applications && osascript -e 'display notification "backup ~/Dropbox/dotfiles/config/Applications" with title "Applications"'
+  brew install mas && brew bundle dump --describe --force --file="~/Library/CloudStorage/Dropbox/dotfiles/config/Brewfile" && osascript -e 'display notification "backup to ~/Library/CloudStorage/Dropbox/dotfiles/config/Brewfile" with title "Brewfile"'
+  ls /Applications | sort > ~/Library/CloudStorage/Dropbox/dotfiles/config/Applications && osascript -e 'display notification "backup ~/Library/CloudStorage/Dropbox/dotfiles/config/Applications" with title "Applications"'
   mackup -f backup && osascript -e 'display notification "mackup backup" with title "Mackup"'
 }
 
