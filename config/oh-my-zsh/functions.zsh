@@ -87,3 +87,9 @@ function tsw() {
   tmux split-window -h -p 60
   tmux split-window -v -p 20
 }
+
+function hhkbble() {
+  diskutil umount /Volumes/HHKB_BLE
+  cd ~/Downloads
+  sudo dd if=./HHKB_BLE.BIN of=/dev/disk4 seek=4
+}
