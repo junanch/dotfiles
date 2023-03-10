@@ -4,6 +4,11 @@
 
 call plug#begin()
 
+" use normal easymotion when in VIM mode
+Plug 'easymotion/vim-easymotion'
+" use VSCode easymotion when in VSCode mode
+Plug 'asvetliakov/vim-easymotion'
+
 " The NERDTree is a file system explorer for the Vim editor
 Plug 'preservim/nerdtree'
 

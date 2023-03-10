@@ -93,3 +93,7 @@ function hhkbble() {
   cd ~/Downloads
   sudo dd if=./HHKB_BLE.BIN of=/dev/disk4 seek=4
 }
+
+function broz() {
+  npx broz "$1"
+}
