@@ -43,3 +43,6 @@ alias brewup='brew install mas && brew bundle dump --describe --force --file="~/
 # tmux
 alias tswh='tmux split-window -h -p'
 alias tswv='tmux split-window -v -p'
+
+# spine
+alias spine='/Applications/SpineTrial.app/Contents/MacOS/Spine\ Trial'

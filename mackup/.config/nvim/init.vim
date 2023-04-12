@@ -102,4 +102,9 @@ if(exists("g:vscode"))
 
   nmap <expr> j MoveCursor('j')
   nmap <expr> k MoveCursor('k')
+
+  " Workaround for gk/gj
+  nnoremap gk :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
+  nnoremap gj :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
 endif
+
