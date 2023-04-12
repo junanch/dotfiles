@@ -1,7 +1,8 @@
 [user]
 	email = andyson1024@gmail.com
 	name = Junan
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILFMSt6EG3PKywQEe6l98P76TeHlubzumUX08DTWyJtb
+  # ssh key to sign commits and tags
+  signingkey = ~/.ssh/GitHub.pub
 [core]
   editor = vim
   ignorecase = false
