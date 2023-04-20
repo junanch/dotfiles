@@ -14,6 +14,7 @@ plugins=(
   git-open
   tmux
   yarn
+  fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -82,6 +83,8 @@ export PATH="${GOPATH}/bin:${GOROOT}/bin:$PATH"
 # vim mode
 set -o vi
 set backspace=2
+alias vim="nvim"
+alias vi="nvim"
 ################################################################################
 
 
@@ -93,5 +96,10 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 
 ################################################################################
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -z "$ZSH_NAME" ] && [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ################################################################################
+
+# pnpm
+export PNPM_HOME="/Users/junan/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
