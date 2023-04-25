@@ -38,7 +38,7 @@ alias p-reset='rm -rf node_modules && rm -f pnpm-lock.yaml && pnpm install && np
 alias freewifi="sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'`"
 
 # brew
-alias brewup='brew install mas && brew bundle dump --describe --force --file="~/Library/CloudStorage/Dropbox/dotfiles/config/Brewfile"'
+alias brewup='brew install mas && brew bundle dump --describe --force --file="~/.Brewfile"'
 
 # tmux
 alias tswh='tmux split-window -h -p'

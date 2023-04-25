@@ -1,6 +1,5 @@
 .DS_Store
 .vscode
 .idea
-**/Library
-**/clash
 **/.ssh
+**/Library/Application\ Support

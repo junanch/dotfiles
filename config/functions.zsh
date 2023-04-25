@@ -1,3 +1,5 @@
+# reflink: https://github.com/stefanjudis/dotfiles/
+
 # find shorthand
 function f() {
   find . -name "$1"
@@ -77,12 +79,6 @@ function cur-wifi-pasd() {
  security find-generic-password -a "$current_wifi" -g | tAIl -0
 }
 
-function backupp() {
-  brew install mas && brew bundle dump --describe --force --file="~/Library/CloudStorage/Dropbox/dotfiles/config/Brewfile" && osascript -e 'display notification "backup to ~/Library/CloudStorage/Dropbox/dotfiles/config/Brewfile" with title "Brewfile"'
-  ls /Applications | sort > ~/Library/CloudStorage/Dropbox/dotfiles/config/Applications && osascript -e 'display notification "backup ~/Library/CloudStorage/Dropbox/dotfiles/config/Applications" with title "Applications"'
-  mackup -f backup && osascript -e 'display notification "mackup backup" with title "Mackup"'
-}
-
 function tsw() {
   tmux split-window -h -p 60
   tmux split-window -v -p 20
@@ -96,4 +92,10 @@ function hhkbble() {
 
 function broz() {
   npx broz "$1"
+}
+
+function mybackup() {
+  brew install mas && brew bundle dump --describe --force --file="~/.Brewfile" && osascript -e 'display notification "backup to ~/.Brewfile" with title "Brewfile"'
+  ls /Applications | sort > ~/.Applications && osascript -e 'display notification "backup ~/.Applications" with title "Applications"'
+  mackup backup && osascript -e 'display notification "mackup backup" with title "Mackup"'
 }
