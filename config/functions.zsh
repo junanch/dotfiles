@@ -80,8 +80,16 @@ function cur-wifi-pasd() {
 }
 
 function tsw() {
-  tmux split-window -h -p 60
+  # tmux split-window -h -p 60
+  # tmux split-window -v -p 20
+
+  # RefLink: https://stackoverflow.com/a/59342564
+  tmux new-window
+  tmux split-window -h
   tmux split-window -v -p 20
+  tmux select-pane -t 1
+  tmux split-window -v -p 20
+  tmux select-pane -t 1
 }
 
 function hhkbble() {
