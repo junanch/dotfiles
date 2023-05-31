@@ -84,11 +84,11 @@ function tsw() {
   # tmux split-window -v -p 20
 
   # RefLink: https://stackoverflow.com/a/59342564
-  tmux new-window
+  # tmux new-window
   tmux split-window -h
-  tmux split-window -v -p 20
+  tmux split-window -v -p 30
   tmux select-pane -t 1
-  tmux split-window -v -p 20
+  tmux split-window -v -p 30
   tmux select-pane -t 1
 }
 
